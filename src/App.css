@@ -1,38 +1,20 @@
-.App {
-  text-align: center;
-}
+/* Navbar-js */
+.login-button{ display:flex; justify-content: end; gap: 20px; margin:30px; cursor: pointer; }
+.nav-section { display:flex; justify-content: center; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.menu-container{ display:flex; justify-content: space-between; align-items: center; width: 100%; height: 10vh; }
+.menu-list { display:flex; list-style: none; flex:1; justify-content: center; }
+.menu-list li { padding: 30px; text-align: center;}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.search-container{ position: relative; padding-right:20px; }
+.search-box-icon{ position: absolute; left: 10px; top:5% ; }
+.input-box {border: none; border-bottom: 1px solid black; padding-left:30px; padding-bottom: 5px; font-size:0.9rem; }
+.input-box:focus { outline: none; border-bottom: 1px solid black;}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* ProductAll.js */
+.card-img:hover { transform: scale(1.1); }
+.card-img-hover { transition: transform 0.3s ease;}
 
-.App-link {
-  color: #61dafb;
-}
+/* Login.js */
+.login-container{ display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 30px;  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
