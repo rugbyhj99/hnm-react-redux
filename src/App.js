@@ -6,6 +6,7 @@ import ProductDetail from './page/ProductDetail.js';
 import Login from './page/Login.js';
 import Navbar from './component/Navbar.js';
 import { useState } from 'react';
+import PrivateRouter from './route/PrivateRouter.js';
 
 
 // 1. 전체상품페이지, 로그인, 상품상세페이지
@@ -21,13 +22,14 @@ import { useState } from 'react';
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
+  console.log(authenticate);
   return (
-    <div>
-      <Navbar/>
+    <div >
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
         <Route path="/" element={<ProductAll/>}/>
-        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
-        <Route path="/product/:id" element={<ProductDetail/>}/>
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}  />}/>
+        <Route path="/product/:id" element={<PrivateRouter authenticate={authenticate}/>}/>
       </Routes>
     </div>
   );
