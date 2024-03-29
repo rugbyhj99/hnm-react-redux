@@ -8,12 +8,12 @@ const ProductCard = ( {item} ) => {
       navigate(`/product/${item.id}`)
     }
   return (
-    <div onClick={showDetail}>
-        <img src={item?.img} className="card-img card-img-hover"/>
-        <div>{item?.choice === true ? "Concious Choice" : ""}</div>
-        <div>{item?.title}</div>
-        <div>{item?.price}</div>
-        <div>{item?.new === true? "신제품" : ""}</div>
+    <div>
+        <img src={item?.img} className="card-img" onClick={showDetail}/>
+        <div style={{ color: 'red', fontWeight: '600', fontSize: '1.3rem'}}>{item?.choice === true ? "Concious Choice" : ""} {item?.new === true? "신제품" : ""}</div>
+        <div style={{ fontSize: '1.8rem'}}>{item?.title}</div>
+        <div>{item?.price.toLocaleString()}원</div>
+        <div></div>
     </div>
   )
 }

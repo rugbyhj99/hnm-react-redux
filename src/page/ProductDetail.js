@@ -28,12 +28,12 @@ const ProductDetail = () => {
         <Col className="detail-img">
           <img src={product?.img} />
         </Col>
-        <Col>
-          <h4>{product?.title}</h4>
-          <p>{product?.price}</p>
-          <p>{product?.choice === true ? "Concious Choice" : null }</p>
-          <p>{product?.new === true ? "신상품" : null }</p>
-          <p>
+        <Col className="detail-text">
+          <div style={ {color: 'red', fontWeight: '600', fontSize: '1.3rem'}}>{product?.choice === true ? "Concious Choice" : null } {product?.new === true ? "신상품" : null }</div>
+          <h1>{product?.title}</h1>
+          <h1>{product?.price.toLocaleString()}원</h1>   
+          
+          <div>
             <Dropdown>
               <Dropdown.Toggle variant="white" id="dropdown-basic">
                 {selectedSize ? selectedSize : "Select Size"} {/* 선택된 사이즈 표시 */}
@@ -46,10 +46,9 @@ const ProductDetail = () => {
                     {size}
                   </Dropdown.Item>
                 ))}
-              </Dropdown.Menu>
-       
+              </Dropdown.Menu>       
             </Dropdown>
-          </p>
+          </div>
         </Col>
       </Row>
     </Container>
