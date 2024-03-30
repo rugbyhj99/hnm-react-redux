@@ -25,8 +25,8 @@ const ProductDetail = () => {
   return (
     <Container>
       <Row>
-        <Col className="detail-img">
-          <img src={product?.img} />
+        <Col className="detail-img" >
+          <img src={product?.img} style={{ width: '100%'}} />
         </Col>
         <Col className="detail-text">
           <div style={ {color: 'red', fontWeight: '600', fontSize: '1.3rem'}}>{product?.choice === true ? "Concious Choice" : null } {product?.new === true ? "신상품" : null }</div>
