@@ -9,7 +9,7 @@ const ProductDetail = () => {
   const[product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(""); // 선택된 사이즈를 상태로 관리
   const getProductDetail = async() => {
-    let url = `http://localhost:5000/products/${id}`
+    let url = `https://my-json-server.typicode.com/rugbyhj99/hnm-react/products/${id}`
     let response = await fetch(url);
     let data = await response.json();
     console.log(data);
@@ -17,7 +17,7 @@ const ProductDetail = () => {
   }
   useEffect(() => {
     getProductDetail()
-  }, [])
+  }, [id])
 
   const handleSizeSelect = (size) => {
     setSelectedSize(size); // 선택된 사이즈 업데이트
