@@ -9,7 +9,7 @@ const ProductCard = ( {item} ) => {
     }
   return (
     <div>
-        <img src={item?.img} className="card-img" onClick={showDetail}/>
+        <img src={item?.img} className="card-img" onClick={showDetail} />
         <div style={{ color: 'red', fontWeight: '600', fontSize: '1.3rem'}}>{item?.choice === true ? "Concious Choice" : ""} {item?.new === true? "신제품" : ""}</div>
         <div style={{ fontSize: '1.8rem'}}>{item?.title}</div>
         <div>{item?.price.toLocaleString()}원</div>

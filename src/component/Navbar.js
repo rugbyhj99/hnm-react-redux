@@ -46,19 +46,21 @@ const Navbar = ( {authenticate, setAuthenticate} ) => {
                 ))
             }
         </ul>
-        
+        <div className="hamburger-icon hide" >
+                <FontAwesomeIcon icon={menuIcon} size="l" onClick={toggleMenu} style={{ position: 'fixed', left: '30px', top: '30px', zIndex: '10'}} />
+        </div>        
+       
         <div className="nav-top-container">
-            <div className="hamburger-icon hide" >
-            <FontAwesomeIcon icon={menuIcon} size="l" onClick={toggleMenu} style={{ position: 'fixed', right: '30px'}} />
-            </div>
+         
             <div className="search-container">
                 <FontAwesomeIcon icon={faSearch} className="search-box-icon"/>
-                <input type="text" placeholder="제품검색" className="input-box" onKeyDown={ search } />
+                <input type="text" placeholder="제품검색" className="input-box" onKeyDown={ search }  />
             </div>
-            <div className="login-container">
-                <FontAwesomeIcon icon={faUser} size= "sm" className="login-icon" />
-                <div onClick={LoginLogout}>{authenticate ? "로그아웃" : "로그인"}</div>
-            </div>
+           
+        </div>
+        <div className="login-container">
+            <FontAwesomeIcon icon={faUser} size= "sm" className="login-icon" />
+            <div onClick={LoginLogout}>{authenticate ? "로그아웃" : "로그인"}</div>
         </div>
        
         
