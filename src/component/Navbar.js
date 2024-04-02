@@ -4,14 +4,19 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { authenticateAction } from '../redux/actions/authenticateAction';
 
 
-const Navbar = ( {authenticate, setAuthenticate} ) => {
+
+const Navbar = () => {
+    const isAuthenticate = useSelector(state => state.auth.authenticate);
     const menulist = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M Home', 'Sale', '지속가능성' ]
    
     const [menuIcon, setMenuIcon] = useState(faBars);
     const [modalHide, setModalHide] = useState('modal-hide');
-   
+    const dispatch = useDispatch();
+
     const toggleMenu = () => {              
         setMenuIcon(menuIcon === faBars ? faTimes : faBars);  
         setModalHide(modalHide === 'modal-hide' ? null : 'modal-hide');     
@@ -29,8 +34,8 @@ const Navbar = ( {authenticate, setAuthenticate} ) => {
 
     // 로그아웃 버튼 클릭시 authenticate를 false로 변경
     const LoginLogout = () => {
-        if (authenticate) {
-            setAuthenticate(false);            
+        if (isAuthenticate) {
+            dispatch(authenticateAction.logout());          
         } else {
             navigate('/login');
         }
@@ -60,7 +65,7 @@ const Navbar = ( {authenticate, setAuthenticate} ) => {
         </div>
         <div className="login-container">
             <FontAwesomeIcon icon={faUser} size= "sm" className="login-icon" />
-            <div onClick={LoginLogout}>{authenticate ? "로그아웃" : "로그인"}</div>
+            <div onClick={LoginLogout}>{isAuthenticate ? "로그아웃" : "로그인"}</div>
         </div>
        
         

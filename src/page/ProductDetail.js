@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Container, Row, Col } from "react-bootstrap";
 import Dropdown from 'react-bootstrap/Dropdown';
-
+import { productAction } from '../redux/actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductDetail = () => {
   let {id} = useParams();
-  const[product, setProduct] = useState(null);
+  const product = useSelector((state) => state.product.selectedItem);
   const [selectedSize, setSelectedSize] = useState(""); // 선택된 사이즈를 상태로 관리
+  const dispatch = useDispatch();
+
   const getProductDetail = async() => {
-    let url = `https://my-json-server.typicode.com/rugbyhj99/hnm-react/products/${id}`
-    let response = await fetch(url);
-    let data = await response.json();
-    console.log(data);
-    setProduct(data);
+    dispatch(productAction.getProductDetail(id))    
   }
   useEffect(() => {
     getProductDetail()
